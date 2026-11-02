@@ -19,47 +19,32 @@ Buses and trucks have significant blind spots where motorcycles, cars, and pedes
 - **Event Logging:** Automatically exports all detected `ENTRY` and `EXIT` events to a CSV file for evaluation.
 
 ## 🏗️ System Architecture
-```text
-Video Input (4K Dashcam)
-  ↓
-Frame Processing (OpenCV)
-  ↓
-Object Detection (YOLO11s) 
-  ↓
-Object Tracking (ByteTrack)
-  ↓
-Left/Right Zone Geometry Check
-  ↓
-Event State Machine (Entry/Exit)
-  ↓
-Context-Aware Alert Manager (Yellow/Red Logic)
-  ↓
-Annotated Video (HUD) + CSV Event Logs + Audio (TTS)
+
+Video Input (4K Dashcam) ➔ Frame Processing (OpenCV) ➔ Object Detection (YOLO11s) ➔ Object Tracking (ByteTrack) ➔ Left/Right Zone Geometry Check ➔ Event State Machine (Entry/Exit) ➔ Context-Aware Alert Manager (Yellow/Red Logic) ➔ Annotated Video (HUD) + CSV Event Logs + Audio (TTS)
 
 ## 📂 Project Structure
 
-SafeVision-AI/
-├── README.md
-├── requirements.txt
-├── .gitignore
-├── configs/
-│   └── zones.json           # Polygon coordinates for blind spots
-├── src/
-│   ├── detector.py          # YOLO11s implementation & ByteTrack
-│   ├── zones.py             # Geometry and polygon checking
-│   ├── alert_manager.py     # State machine & turn indicator logic
-│   └── pipeline.py          # Main orchestrator class
-├── run_pipeline.py          # Command-line execution script
-└── outputs/
-    └── alert_events/        # CSV logs of detected events
-
+SafeVision-AI/  
+├── README.md  
+├── requirements.txt  
+├── .gitignore  
+├── configs/  
+│   └── zones.json (Polygon coordinates for blind spots)  
+├── src/  
+│   ├── detector.py (YOLO11s implementation & ByteTrack)  
+│   ├── zones.py (Geometry and polygon checking)  
+│   ├── alert_manager.py (State machine & turn indicator logic)  
+│   └── pipeline.py (Main orchestrator class)  
+├── run_pipeline.py (Command-line execution script)  
+└── outputs/  
+&nbsp;&nbsp;&nbsp;&nbsp;└── alert_events/ (CSV logs of detected events)  
 
 ## 🚀 Installation & Usage
 
 ### 1. Requirements
 Ensure you have Python 3.9+ installed. 
+
 ```bash
 git clone https://github.com/HameedaParvinShaik/SafeVision-AI.git
 cd SafeVision-AI
 pip install -r requirements.txt
-
