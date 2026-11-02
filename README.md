@@ -17,7 +17,10 @@ Buses and trucks have significant blind spots where motorcycles, cars, and pedes
 - **State Machine:** Prevents duplicate alerts. A single vehicle will only trigger one `ENTRY` event until it registers an `EXIT` event.
 - **Audio & Visual Notifications:** Draws a real-time Heads-Up Display (HUD) on the video and generates Text-to-Speech (TTS) audio warnings.
 - **Event Logging:** Automatically exports all detected `ENTRY` and `EXIT` events to a CSV file for evaluation.
+## 🎥 Demo
+[![SafeVision AI Demo](https://img.youtube.com/vi/NZv6LAPPIxw/0.jpg)](https://youtu.be/NZv6LAPPIxw)
 
+*Click the image above to watch the full pipeline demo. You will see the bounding boxes, the tracking IDs, the Heads-Up Display (HUD), and hear the real-time text-to-speech audio alerts for Yellow and Red warnings.*
 ## 🏗️ System Architecture
 
 Video Input (4K Dashcam) ➔ Frame Processing (OpenCV) ➔ Object Detection (YOLO11s) ➔ Object Tracking (ByteTrack) ➔ Left/Right Zone Geometry Check ➔ Event State Machine (Entry/Exit) ➔ Context-Aware Alert Manager (Yellow/Red Logic) ➔ Annotated Video (HUD) + CSV Event Logs + Audio (TTS)
